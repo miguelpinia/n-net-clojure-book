@@ -17,7 +17,7 @@ pdflatex: clean
 	make clean
 
 view:
-	evince ${FILE_TEX}.pdf &
+	evince time-machine/${DATESTAMP}/${FILE_TEX}.pdf &
 
 clean:
 	ls ${FILE_TEX}.* | grep -v \.tex$ | grep -v \.bib$ | grep -v \.tcp$ | xargs rm -fv
