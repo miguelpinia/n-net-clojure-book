@@ -42,7 +42,7 @@ expresar a través de la función:
 
 \begin{equation}
   \label{eq:perceptron1}
-y_i(t) = f(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall i, 1 \leq i \leq n
+y_i(t) = f(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall\  i, 1 \leq i \leq n
 \end{equation}
 
 Las neuronas de entrada de este modelo no realizan ningún tipo de
@@ -53,7 +53,7 @@ escalón o \textbf{Función de Heaviside}. De este modo, la función
 \ref{eq:perceptron1} se puede escribir de la siguiente forma:
 
 \begin{equation}
-  y_i = H(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall i, 1 \leq i \leq n
+  y_i = H(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall\  i, 1 \leq i \leq n
 \end{equation}
 
 La forma básica de uso del perceptrón es como clasificador, como para
@@ -144,12 +144,12 @@ procesamiento de la red.\\
 
 \theoremstyle{plain}
 \begin{theorem}[Teorema de convergencia del perceptrón]
-Supongamos que existe algún vector de parámetros $\theta*$ tal qué
-$||\theta*|| = 1$ y algún $\phi > 0$ tal que $\forall t = 1 \dots n$,
+Supongamos que existe algún vector de parámetros $\theta^*$ tal qué
+$||\theta^*|| = 1$ y algún $\phi > 0$ tal que $\forall\  t = 1 \dots n$,
 \begin{equation*}
-  y_t(x_t, \theta*) \geq \phi
+  y_t(x_t, \theta^*) \geq \phi
 \end{equation*}
-Además en adición, suponga que $\forall t = 1 \dots n, ||x_t|| \leq
+Además en adición, suponga que $\forall\  t = 1 \dots n, ||x_t|| \leq
 R$\\
 Entonces, el algoritmo del perceptrón tiene al menos
 
@@ -170,14 +170,14 @@ $||x||=\sqrt{\displaystyle\sum_ix_i^2}$
 Denotemos como $\theta^k$ para ser el vector de parámetros cuando el
 algoritmo está en \textit{k-ésimo} error. Note que tenemos
 \begin{equation*}
-\theta_1 = 0
+\theta^1 = 0
 \end{equation*}
 Ahora asumamos que el error \textit{k-ésimo} se genera cuando vemos el
 ejemplar $t$, así que tenemos:
 \begin{eqnarray}
-  \theta^{k+1}\theta* & = & (\theta^k + y_tx_t)\theta* \label{eq:2.1}\\
-                      & = & \theta^k\theta* + y_tx_t\theta* \label{eq:2.2}\\
-                      & \geq & \theta^k\theta* + \phi \label{eq:2.3}
+  \theta^{k+1}\theta^* & = & (\theta^k + y_tx_t)\theta^* \label{eq:2.1}\\
+                      & = & \theta^k\theta^* + y_tx_t\theta^* \label{eq:2.2}\\
+                      & \geq & \theta^k\theta^* + \phi \label{eq:2.3}
 \end{eqnarray}
 
 De la ecuación \ref{eq:2.1} sigue la definición de las actualizaciones
@@ -185,17 +185,17 @@ del perceptrón. La ecuación \ref{eq:2.3} sigue la suposición del
 teorema, donde tenemos:
 
 \begin{equation*}
-  y_tx_t\theta* \geq \phi
+  y_tx_t\theta^* \geq \phi
 \end{equation*}
 
 Por inducción sobre $k$ tenemos qué:
 
 \begin{equation*}
-  \theta^{k+1}\theta* \geq k\phi
+  \theta^{k+1}\theta^* \geq k\phi
 \end{equation*}
 
-Además, como $||\theta^{k+1}|| x ||\theta*|| \geq \theta^{k+1}\theta*$
-y $||\theta*|| = 1 $, tenemos que:
+Además, como $||\theta^{k+1}|| x ||\theta^*|| \geq \theta^{k+1}\theta^*$
+y $||\theta^*|| = 1 $, tenemos que:
 
 \begin{equation}
   \label{eq:2.4}
