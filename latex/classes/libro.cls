@@ -105,7 +105,7 @@
 \usepackage{fancybox}
 \usepackage{listings}
 \usepackage{rotating}
-% \usepackage{minted}
+\usepackage{minted}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuraciones varias %
