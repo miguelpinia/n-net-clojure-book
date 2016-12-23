@@ -96,12 +96,114 @@ ordenadas en el plano, la condición
 
 representa una recta (hiperplano si trabajamos con n entradas), la
 cuál va a dividir el plano en dos regiones, donde la neurona
-proporciona una salida 0 o 1 respectivamente.\\
+proporciona una salida 0 o 1 respectivamente\cite{martin2002redes}\\
 
 De esto se infiere que una neurona de tipo perceptrón representa un
 discriminador lineal, que al implementar una condición lineal que
 separa dos regiones en el espacio que representan dos tipos diferentes
 de patrones.
+
+\subsubsection{Teorema de convergencia del perceptrón}
+
+\theoremstyle{plain}
+\begin{theorem}[Teorema de convergencia del perceptrón]
+Supongamos que existe algún vector de parámetros $\theta*$ tal qué
+$||\theta*|| = 1$ y algún $\phi > 0$ tal que $\forall t = 1 \dots n$,
+\begin{equation*}
+  y_t(x_t, \theta*) \geq \phi
+\end{equation*}
+Además en adición, suponga que $\forall t = 1 \dots n, ||x_t|| \leq
+R$\\
+Entonces, el algoritmo del perceptrón tiene al menos
+
+\begin{equation*}
+  \frac{R^2}{\phi^2}
+\end{equation*}
+
+errores. La definición de error la vamos a entender como sigue: un
+error ocurre cuando tenemos $y' \neq y_t$ para algún par (j, t) en el
+algoritmo.
+\end{theorem}
+
+Notemos que para cualquier vector $x$, nosotros usamos $||x||$ para
+referirnos a la norma Euclidiana de \textbf{x}, es decir,
+$||x||=\sqrt{\displaystyle\sum_ix_i^2}$
+
+\begin{proof}
+Denotemos como $\theta^k$ para ser el vector de parámetros cuando el
+algoritmo está en \textit{k-ésimo} error. Note que tenemos
+\begin{equation*}
+\theta_1 = 0
+\end{equation*}
+Ahora asumamos que el error \textit{k-ésimo} se genera cuando vemos el
+ejemplar $t$, así que tenemos:
+\begin{eqnarray}
+  \theta^{k+1}\theta* & = & (\theta^k + y_tx_t)\theta* \label{eq:2.1}\\
+                      & = & \theta^k\theta* + y_tx_t\theta* \label{eq:2.2}\\
+                      & \geq & \theta^k\theta* + \phi \label{eq:2.3}
+\end{eqnarray}
+
+De la ecuación \ref{eq:2.1} sigue la definición de las actualizaciones
+del perceptrón. La ecuación \ref{eq:2.3} sigue la suposición del
+teorema, donde tenemos:
+
+\begin{equation*}
+  y_tx_t\theta* \geq \phi
+\end{equation*}
+
+Por inducción sobre $k$ tenemos qué:
+
+\begin{equation*}
+  \theta^{k+1}\theta* \geq k\phi
+\end{equation*}
+
+Además, como $||\theta^{k+1}|| x ||\theta*|| \geq \theta^{k+1}\theta*$
+y $||\theta*|| = 1 $, tenemos que:
+
+\begin{equation}
+  \label{eq:2.4}
+  ||\theta^{k+1}|| \geq k\phi
+\end{equation}
+
+Ahora como segunda parte de la demostración, vamos a tomar la cota
+superior en $||\theta^{k+1}||$. Tenemos que:
+
+\begin{eqnarray}
+  ||\theta^{k+1}|| & = & ||\theta^k + y_tx_t||^2 \label{eq:2.5}\\
+                   & = & ||\theta^k|| + y_t^2||x_t||^2 +
+                         2y_tx_t\theta^k \label{eq:2.6}\\
+                   & \leq & ||\theta^k||^2 + R^2 \label{eq:2.7}
+\end{eqnarray}
+
+La igualdad en \ref{eq:2.5} sigue la definición de actualización del
+perceptrón. La ecuación \ref{eq:2.7} parte de que tenemos: 1)
+$y_t^2||x_t||^2 = ||x_t||^2 \leq R^2$ por la suposición del teorema y
+porqué $y_t^2=1$; 2) $y_tx_t\theta^k \leq 0$ porqué sabemos que el
+vector de parámetros $\theta^k$ da error el t-ésimo ejemplo.\\
+Siguiendo por inducción sobre $k$ (recordemos que $||theta^1||^2 = 0$)
+qué:
+
+\begin{equation}
+  \label{eq:2.8}
+  ||\theta^{k+1}||^2 \leq kR^2
+\end{equation}
+
+Combinando las cotas de las ecuaciones \ref{eq:2.4} y \ref{eq:2.8}
+tehemos:
+
+\begin{equation}
+  k^2\phi^2 \leq ||\theta^{k+1}||^2 \leq kR^2
+\end{equation}
+
+de donde tenemos
+
+\begin{equation*}
+  k \leq \frac{R^2}{\phi^2}
+\end{equation*}
+
+\end{proof}
+
+
 
 \subsection{Adalina}
 
