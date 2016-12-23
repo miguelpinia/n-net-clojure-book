@@ -22,8 +22,8 @@ view:
 	evince time-machine/${DATESTAMP}/${FILE_TEX}.pdf &
 
 clean:
-	ls ${FILE_TEX}.* | grep -v \.tex$ | grep -v \.bib$ | grep -v \.tcp$ | xargs rm -fv
-	rm -fv *log *aux *dvi *lof *lot *bit *idx *glo *bbl *ilg *toc *ind *blg *out *nlo *brf *nls ${FILE_TEX}.pdf
+	ls ${FILE_TEX}.* | grep -v \.tex$ | grep -v \.bib$ | grep -v \.tcp$ | grep -v \pdf$ |xargs rm -fv
+	rm -fv *log *aux *dvi *lof *lot *bit *idx *glo *bbl *ilg *toc *ind *blg *out *nlo *brf *nls
 	find . -regex '.*.aux' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.log' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.bbl' -print0 | xargs -0 rm -rfv
