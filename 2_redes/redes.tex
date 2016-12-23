@@ -13,14 +13,95 @@
 En este capítulo estudiaremos los conceptos principales de varias
 redes neuronales diviéndolas en dos tipos: Redes neuronales
 supervisadas y redes neuronales no supervisadas. Esta distinción está
-dada por la forma en que se efectua el aprendizaje dentro de las redes neuronales
-\section{Redes Neuronales Supervisadas}
+dada por la forma en que se efectúa el aprendizaje dentro de las redes
+neuronales.\\
 
+En el capítulo \ref{cha:Introducción} hablamos brevemente de estos
+tipos de aprendizaje, donde mencionamos que el \textbf{aprendizaje
+supervisado} es en el que se presenta ejemplos y salidas deseadas
+para entrenar a la red y el \textbf{aprendizaje no supervisado} es el
+que de forma autónoma, la red va descubriendo características acerca
+de los datos que le son presentados.\\
+
+A continuación explicaremos a detalle estos tipos de aprendizaje y
+mostraremos las redes neuronales que están clasificadas bajo estos
+tipos.
+
+\section{Redes Neuronales Supervisadas}
 
 
 \subsection{Perceptrón simple}
 
+El perceptrón simple fue introducido por Frank Rossenblatt a finales
+de los años 50, modelándolo como un dispositivo que mantuviera los
+principios biológicos de una neurona y su habilidad para aprender. El
+modelo implementado por el perceptrón simple es unidireccional,
+compuesto por dos capas de neuronas, una sensorial o de entrada y otra
+de respuesta o salida. La operación básica de esta red se puede
+expresar a través de la función:
 
+\begin{equation}
+  \label{eq:perceptron1}
+y_i(t) = f(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall i, 1 \leq i \leq n
+\end{equation}
+
+Las neuronas de entrada de este modelo no realizan ningún tipo de
+procesamiento, solo se dedican a enviar información (consideraremos en
+este momento solamente señales discretas {0, 1}) a las neuronas de
+salida. Estas últimas utilizan como función de activación la función
+escalón o \textbf{Función de Heaviside}. De este modo, la función
+\ref{eq:perceptron1} se puede escribir de la siguiente forma:
+
+\begin{equation}
+  y_i = H(\sum_{j=1}^nw_{ij}x_j-\theta_i), \forall i, 1 \leq i \leq n
+\end{equation}
+
+La forma básica de uso del perceptrón es como clasificador, como para
+realizar representaciones de funciones booleanas, esto último debido a
+que su salida es de carácter discreto.\\
+
+A continuación mostraremos un ejemplo de uso del perceptrón como
+clasificador. En este ejemplo cada neurona del perceptrón representa
+una clase, al que dado un vector de entrada, cierta neurona va a
+responder con una salida ${0,1}$, donde 0 dice si el valor no
+corresponde con el valor que representa y 1 si sí corresponde. Es
+fácil observar que el perceptrón solo va a permitir clasificar cuando
+las clases son linealmente separables, esto es, existe una única
+condición de separación lineal o hiperplano.\\
+
+Sea $n_i$ una neurona de nuestro ejemplo que sólo va a tener dos
+entradas $x_1$ y $x_2$, con salida $y_i$ y cuya operación vamos a
+definir como:
+
+\begin{equation}
+  y_i = H(w_1x_1 + w_2x_2 - \theta)
+\end{equation}
+
+O desmenuzada de la siguiente forma:
+
+\begin{equation}
+  y_i  =
+  \begin{cases}
+    1, si\ w_1x_1 + w_2x_2 \geq \theta\\
+    0, si\ w_1x_1 + w_2x_2 \le \theta\\
+  \end{cases}
+\end{equation}
+
+Si consideramos $x_1$ y $x_2$ situadas sobre el ejes de las abscisas y
+ordenadas en el plano, la condición
+
+\begin{equation}
+  w_1x_1 + w_2x_2 - \theta = 0 \implies x_2 = -\frac{w_1}{w_2}x_1 + \frac{\theta}{w_2}
+\end{equation}
+
+representa una recta (hiperplano si trabajamos con n entradas), la
+cuál va a dividir el plano en dos regiones, donde la neurona
+proporciona una salida 0 o 1 respectivamente.\\
+
+De esto se infiere que una neurona de tipo perceptrón representa un
+discriminador lineal, que al implementar una condición lineal que
+separa dos regiones en el espacio que representan dos tipos diferentes
+de patrones.
 
 \subsection{Adalina}
 
