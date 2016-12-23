@@ -1,25 +1,74 @@
 \begin{prefacio}
 
-  Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.
-  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse
-  potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam,
-  dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.
-  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis
-  ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce
-  commodo.  Vestibulum convallis, lorem a tempus semper, dui dui
-  euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero
-  mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis
-  tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis,
-  risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum
-  nunc justo sit amet elit.
+  El presente documento es escrito con la intención de proveer un
+  enfoque en la implementación de redes neuronales a través de
+  software, esto debido a que la implementación en hardware no siempre
+  es posible y suele estar fuera del alcance de los que buscan entrar
+  en el mundo de las redes neuronales.
 
-  Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat
-  non orci commodo lobortis.  Proin neque massa, cursus ut, gravida
-  ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor
-  tellus.  Nullam tempus.  Mauris ac felis vel velit tristique
-  imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim
-  bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet
-  quis, semper a, massa.  Phasellus purus.  Pellentesque tristique
-  imperdiet tortor.  Nam euismod tellus id erat.
+  El enfoque de la implementación es a través de un lenguaje funcional
+  para definir la mayoría de las operaciones entre redes como
+  funciones, esto para tratar de mantener un paralelismo entre la
+  modelación matemática de la red neuronal y la implementación en
+  código.
+
+  El lenguaje elegido para realizar todas estas operaciones es
+  Clojure, el cuál a mi parecer, las siguientes razones lo hacen un
+  lenguaje adecuado para trabajar.
+
+  \begin{enumerate}
+  \item [Filosofía] Clojure hace algunas muy buenas decisiones de
+    diseño. Por ejemplo estructuras de datos inmutables, así como la
+    tendencia a implementar funciones puras (i.e. no tienen efectos
+    secundarios).
+  \item [Concurrencia] Clojure es realmente bueno con problemas de
+    concurrencia, y varias bibliotecas lo hacen mucho mejor.
+  \item [Interoperabilidad] Clojure puede hacer uso de bibliotecas de
+    Java existentes.
+  \item [Desarrollo] La creación de código y el prototipado rápido
+    permiten una mejor experiencia al programar.
+  \item [Macros y DSL] Permite extender el lenguaje de forma muy
+    sencilla a través de macros y con ello crear lenguajes de dominio
+    específico (DLS - Domain Specific Languages)
+  \end{enumerate}
+
+  Una vez elegido el lenguaje y la explicación del porqué ha sido
+  elegido, explicaremos brevemente los tipos de redes neuronales que
+  vamos a construir. Generalmente las redes neuronales se diferencian
+  por el tipo de aprendizaje que usan, siendo el aprendizaje
+  supervisado y el no supervisado los más comunes. Existen también
+  soluciones híbridas las cuales mencionaremos brevemente en los
+  capítulos dedicados a las redes neuronales. En el primer capítulo se
+  hará una exposición un poco más detallada de porqué Clojure es una
+  buena opción.
+
+  En el segundo capítulo hablaremos de las siguientes redes:
+
+  \begin{itemize}
+  \item Perceptrón Simple
+  \item Adalina
+  \item Perceptrón multicapa y backpropagation
+  \item Mapas autoorganizados (Redes de Kohonen)
+  \item Redes de Hopfield
+  \end{itemize}
+
+  Así como su base matemática y algunas de las aplicaciones que
+  tienen.
+
+  En el tercer capítulo haremos una breve introducción a las distintas
+  características de Clojure que serán fundamentales conocer al
+  momento de implementar las redes neuronales mecionadas en el
+  capítulo 2.
+
+  En el cuarto capítulo explicaremos como realizar la implementación
+  de las distintas redes neuronales. Continuando con el quinto
+  capítulo en el cuál veremos una aplicación real de las redes
+  neuronales y la comparación con otras técnicas.
+
+  Y finalizamos el documento dando conclusiones sobre los temas
+  desarrollados en el libro. Espero que el presente documento sea de
+  su agrado y sirva como apoyo para la comprensión de las redes
+  neuronales artificiales.
+
 
 \end{prefacio}
