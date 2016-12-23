@@ -4,14 +4,14 @@ DATESTAMP=`date +'%Y-%m-%d'`
 all: pdflatex
 
 pdflatex: clean
-	pdflatex ${FILE_TEX}.tex
-	pdflatex ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
 	makeindex ${FILE_TEX}.nlo -s nomencl.ist -o ${FILE_TEX}.nls
 	bibtex ${FILE_TEX}
-	pdflatex ${FILE_TEX}.tex
-	pdflatex ${FILE_TEX}.tex
-	pdflatex ${FILE_TEX}.tex
-	pdflatex ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
+	pdflatex -shell-escape ${FILE_TEX}.tex
 	mkdir -p time-machine/${DATESTAMP}
 	cp ${FILE_TEX}.pdf time-machine/${DATESTAMP}/${FILE_TEX}.pdf
 	make clean
@@ -26,3 +26,4 @@ clean:
 	find . -regex '.*.log' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.bbl' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.blg' -print0 | xargs -0 rm -rfv
+	rm -r _minted-main
