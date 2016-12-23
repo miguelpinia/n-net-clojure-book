@@ -281,5 +281,6 @@
 }
 
 
-\theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
+\newtheorem{theorem}{Teorema}[chapter]
+\renewcommand\qedsymbol{$\blacksquare$}
