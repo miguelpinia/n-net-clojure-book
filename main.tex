@@ -3,12 +3,15 @@
 \title{Introducción a las Redes Neuronales con Clojure}
 \author{Miguel Angel Piña Avelino}
 
+\makeglossaries
+\input{7_backmatter/glosario}
+
 \begin{document}
 \maketitle
 \include{0_frontmatter/title_back}
 \frontmatter
 \include{0_frontmatter/abstract}
-\include{0_frontmatter/acknowledgement}
+% \include{0_frontmatter/acknowledgement}
 \tableofcontents
 \addcontentsline{toc}{chapter}{Índice General}
 \listoffigures
@@ -21,6 +24,8 @@
 \include{6_conclusiones/conclusiones}
 \backmatter
 \appendix
-\bibliography{references/references}
+\bibliography{7_backmatter/references}
 \bibliographystyle{alpha}
+\glossarystyle{altlisthypergroup}
+\printglossary[title=Glosario,toctitle=Glosario de Términos]
 \end{document}

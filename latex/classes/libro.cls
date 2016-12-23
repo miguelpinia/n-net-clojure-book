@@ -97,6 +97,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{minitoc}
 \usepackage[intoc,spanish]{nomencl}
 \usepackage{mathptmx}
@@ -106,6 +107,8 @@
 \usepackage{listings}
 \usepackage{rotating}
 \usepackage{minted}
+\usepackage[xindy,nopostdot]{glossaries}
+\usepackage{wrapfig}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuraciones varias %
@@ -115,6 +118,8 @@
 \renewcommand{\nomname}{Glosario}
 \renewcommand{\nomlabel}[1]{\textbf{#1}}
 \makenomenclature{}
+
+\setlength\parindent{0pt}
 
 \newcommand{\g}{\footnote{Para todas las abreviaciones, veáse el glosario en la página \pageref{nom}.}}
 
@@ -274,3 +279,7 @@
 	\renewcommand{\thepage}{\arabic{page}}
 	\setcounter{page}{1}
 }
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
