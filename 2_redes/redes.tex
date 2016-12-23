@@ -103,6 +103,43 @@ discriminador lineal, que al implementar una condición lineal que
 separa dos regiones en el espacio que representan dos tipos diferentes
 de patrones.
 
+\subsubsection{Algoritmo de aprendizaje del perceptrón}
+
+La importancia del perceptrón radica en su capacidad como dispositivo
+entrenable. El algoritmo de aprendizaje propuesto por Rosenblatt,
+permite que automáticamente los pesos sinápticos se ajusten en
+proporción a la diferencia existente entre la salida actual de la red
+y la salida deseada, con el objetivo de minimizar el error de
+procesamiento de la red.\\
+
+\theoremstyle{definition}
+\begin{definition}
+  \textbf{Regla de aprendizaje de Hebb}\\
+  Se denomina \textbf{Aprendizaje Hebbiano} a aquellas formas de
+  aprendizaje que involucran una modificación en los pesos $\Delta
+  w_{ij}$ proporcional al producto de una entrada $j$ por la salida $i$
+  de la neurona:
+
+  \begin{equation}
+    \Delta w_{ij}=\epsilon y_ix_j
+  \end{equation}
+
+  siendo $\epsilon$ un parámetro denominado \textbf{ritmo de
+  aprendizaje}, qué suele ser un valor entre 0 y 1. De manera general
+  podemos expresar la regla de Hebb de la siguiente forma:
+
+  \begin{equation}
+    \Delta w_{ij}^\mu = t_i^{\mu}x_j^{\mu}
+  \end{equation}
+
+  Y así
+
+  \begin{equation}
+    w_{ij}^{nuevo} = w_{ij}^{viejo} + \Delta w_{ij}^{\mu}
+  \end{equation}
+
+\end{definition}
+
 \subsubsection{Teorema de convergencia del perceptrón}
 
 \theoremstyle{plain}
