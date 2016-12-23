@@ -5,6 +5,8 @@ all: pdflatex
 
 pdflatex: clean
 	pdflatex -shell-escape ${FILE_TEX}.tex
+	xindy -L english -C utf8 -I xindy -M ${FILE_TEX} -t ${FILE_TEX}.glg -o ${FILE_TEX}.gls ${FILE_TEX}.glo
+	makeglossaries ${FILE_TEX}
 	pdflatex -shell-escape ${FILE_TEX}.tex
 	makeindex ${FILE_TEX}.nlo -s nomencl.ist -o ${FILE_TEX}.nls
 	bibtex ${FILE_TEX}
