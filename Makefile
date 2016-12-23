@@ -26,4 +26,4 @@ clean:
 	find . -regex '.*.log' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.bbl' -print0 | xargs -0 rm -rfv
 	find . -regex '.*.blg' -print0 | xargs -0 rm -rfv
-	rm -r _minted-main
+	rm -rf _minted-main
