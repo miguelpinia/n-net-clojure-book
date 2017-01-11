@@ -86,9 +86,51 @@ neuronal:
 Habitualmente, las redes neuronales se clasifican en dos tipos de
 operación o aprendizaje, siendo estos el aprendizaje supervisado y el
 aprendizaje no supervisado, los cuáles hablaremos con mayor detalle en
-las siguientes secciones.
+las siguientes secciones. Un ejemplo visual de como es una red
+neuronal, lo podemos observar en la figura
+~\ref{fig:redUnidireccional}.
 
-\textbf{Incluir imágenes para ilustrar el contenido anterior}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[shorten >=1pt,->,draw=black!50, node distance=\layersep]
+    \tikzstyle{every pin edge}=[<-,shorten <=1pt]
+    \tikzstyle{neuron}=[circle,fill=black!25,minimum size=17pt,inner sep=0pt]
+    \tikzstyle{input neuron}=[neuron, fill=green!50];
+    \tikzstyle{output neuron}=[neuron, fill=red!50];
+    \tikzstyle{hidden neuron}=[neuron, fill=blue!50];
+    \tikzstyle{annot} = [text width=4em, text centered]
+
+    % Draw the input layer nodes
+    \foreach \name / \y in {1,...,4}
+    % This is the same as writing \foreach \name / \y in {1/1,2/2,3/3,4/4}
+        \node[input neuron, pin=left:Entrada \#\y] (I-\name) at (0,-\y) {};
+
+    % Draw the hidden layer nodes
+    \foreach \name / \y in {1,...,5}
+        \path[yshift=0.5cm]
+            node[hidden neuron] (H-\name) at (\layersep,-\y cm) {};
+
+    % Draw the output layer node
+    \node[output neuron,pin={[pin edge={->}]right:Salida}, right of=H-3] (O) {};
+    % Connect every node in the input layer with every node in the
+    % hidden layer.
+    \foreach \source in {1,...,4}
+        \foreach \dest in {1,...,5}
+            \path (I-\source) edge (H-\dest);
+
+    % Connect every node in the hidden layer with the output layer
+    \foreach \source in {1,...,5}
+        \path (H-\source) edge (O);
+
+    % Annotate the layers
+    \node[annot,above of=H-1, node distance=1cm] (hl) {Capa oculta};
+    \node[annot,left of=hl] {Capa de entrada};
+    \node[annot,right of=hl] {Capa de salida};
+  \end{tikzpicture}
+  \caption{Ejemplo de una red neuronal unidireccional}
+  \label{fig:redUnidireccional}
+\end{figure}
+
 
 \section{Aprendizaje de la red neuronal}
 

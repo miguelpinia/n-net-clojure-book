@@ -58,6 +58,7 @@
   \DeclareGraphicsExtensions{.png, .jpg, .jpeg, .pdf, .gif} %GIF doesn't work??
   \usepackage[pdftex]{graphicx}
   \pdfcompresslevel=9
+  \usepackage{tikz}
   \graphicspath{{0_frontmatter/figures/PNG/}{0_frontmatter/figures/PDF/}{0_frontmatter/figures/}}
 \else
   \usepackage[
@@ -114,6 +115,7 @@
 % Configuraciones varias %
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\def\layersep{2.5cm}
 \nomrefpage{}
 \renewcommand{\nomname}{Glosario}
 \renewcommand{\nomlabel}[1]{\textbf{#1}}
